@@ -1,3 +1,4 @@
+@S880e2259
 Feature: Mark as completed
 
 Background:
@@ -7,6 +8,7 @@ Background:
       | Butter       |
       | Bread        |
 
+@Tec8794be
 Scenario Outline: Mark todos as completed
   When I mark <completed> todos as completed
   Then I see that <activeTodo> todos are still active
@@ -18,15 +20,18 @@ Scenario Outline: Mark todos as completed
     | 3            |     1      |      2        |
 
 
+@Tf1a7c74c
 Scenario: Unmark completed todos
   When I mark the first one as completed
   And I unmark the completed todo item
   Then I see that 4 todos are still active
 
+@T8bdab149
 Scenario: Mark all todos as completed
   When I mark them all as completed
   Then I see that all 4 are completed
 
+@T2614df2e
 Scenario: Clear completed todos
   When I mark them all as completed
   When I clear all completed items
