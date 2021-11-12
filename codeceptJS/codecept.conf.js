@@ -8,7 +8,7 @@ exports.config = {
   tests: './todomvc-tests/**/*_test.js',
   output: './output',
   helpers: {
-    Puppeteer: {
+    Playwright: {
       url: 'http://localhost',
       waitForTimeout: 5000,
       waitForNavigation: 'networkidle0',
