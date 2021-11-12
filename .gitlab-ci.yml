@@ -20,7 +20,12 @@ tests:
   stage: test
   image: mcr.microsoft.com/playwright:focal
   script:
+    - export TESTOMATIO="${testomatio}"
+    - export TESTOMATIO_URL="${testomatio_url}"
+    - export TESTOMATIO_RUN="${run}"
     - cd codeceptJS
-    - npm install
+    - npm i
     - npx codeceptjs run
-
+  #  - npx start-test-run -c 'npx codeceptjs run-workers 2'
+    - echo "Finished!"
+    
