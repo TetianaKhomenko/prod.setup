@@ -1,0 +1,38 @@
+name: CodeceptJS Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'A grep '
+        required: false
+        default: ''
+      testomatio:
+        required: false
+      testomatio_url:
+        required: false        
+      run:
+        required: false
+      browsers:
+        required: false
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: echo "${{ github.event.inputs.browsers }}"
+    - run: npm i
+      working-directory: codeceptJS
+    - run: npx codeceptjs run-workers 2 --grep "${{ github.event.inputs.grep }}"
+      working-directory: codeceptJS
+      env:
+        TESTOMATIO: "${{ github.event.inputs.testomatio }}"
+        TESTOMATIO_URL: "${{ github.event.inputs.testomatio_url }}"
+        TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
