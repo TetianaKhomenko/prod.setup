@@ -6,8 +6,8 @@
 
 # Official framework image. Look for the different tagged releases at:
 # https://hub.docker.com/r/library/node/tags/
-image: node:latest
-
+stages:
+  - test
 
 
 # This folder is cached between builds
@@ -16,7 +16,9 @@ cache:
   paths:
     - node_modules/
 
-test_async:
+tests:
+  stage: test
+  image: mcr.microsoft.com/playwright:focal
   script:
     - cd codeceptJS
     - npm install
