@@ -18,7 +18,7 @@ cache:
 
 test_async:
   script:
-    - cd CodeceptJS
+    - cd codeceptJS
     - npm install
     - npx codeceptjs run
 
