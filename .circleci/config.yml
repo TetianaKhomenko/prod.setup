@@ -51,7 +51,9 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: npx codeceptjs run --grep "<< pipeline.parameters.grep >>"
+          command: 
+            cd $CIRCLE_WORKING_DIRECTORY
+            npx codeceptjs run --grep "<< pipeline.parameters.grep >>"
           working_directory: ~/codeceptJS
           environment:
             TESTOMATIO: << pipeline.parameters.testomatio >>
