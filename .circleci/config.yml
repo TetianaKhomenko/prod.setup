@@ -50,8 +50,10 @@ jobs:
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
       - run:
+         command: cd ./codeceptJS
+      - run:
           name: Run tests
-          command: cd ./codeceptJS npx codeceptjs run --grep "<< pipeline.parameters.grep >>"
+          command: npx codeceptjs run --grep "<< pipeline.parameters.grep >>"
           environment:
             TESTOMATIO: << pipeline.parameters.testomatio >>
             TESTOMATIO_RUN: << pipeline.parameters.run >>
