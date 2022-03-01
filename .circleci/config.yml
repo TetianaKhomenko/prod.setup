@@ -52,11 +52,11 @@ jobs:
       - run:
           name: Run tests
           command: npx codeceptjs run --grep "<< pipeline.parameters.grep >>"
+          working_directory: ~/codeceptJS
           environment:
             TESTOMATIO: << pipeline.parameters.testomatio >>
             TESTOMATIO_RUN: << pipeline.parameters.run >>
             TESTOMATIO_URL: << pipeline.parameters.testomatio_url >>
-            working_directory: ~/codeceptJS
           
 
 workflows:
